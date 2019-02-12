@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/main.xhtml">
+    <ui:define name="content">
+
+        <h:form>
+
+            <h:inputText value="#{listBean.term}"/>
+            <h:commandButton value="Search" action="#{listBean.doSearch}">
+                <f:ajax execute="@form" render="@form"/>
+            </h:commandButton>
+
+            <h:outputLabel value="Not found"
+                           rendered="#{empty listBean.phones}"/>
+            <h:dataTable value="#{listBean.phones}" var="phone"
+                         rendered="#{not empty listBean.phones}"
+                         styleClass="w3-table w3-table-all">
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    #{phone.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Owners</f:facet>
+                    #{phone.owner}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">link</f:facet>
+                    <h:outputLink value="phone.xhtml">open
+                        <f:param name="id" value="#{phone.id}"/>
+                    </h:outputLink>
+                </h:column>
+            </h:dataTable>
+
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+</html>

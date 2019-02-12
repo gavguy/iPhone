@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+
+
+<ui:composition template="/templates/main.xhtml">
+    <ui:define name="content">
+
+        <h:form id="new-phone-form">
+            <ui:fragment rendered="#{newBean.created}">
+                <h2>phone created successfully</h2>
+            </ui:fragment>
+            <p>
+                <h:outputLabel value="Owner:"/>
+                <h:inputText id="owner" value="#{newBean.phone.owner}"/>
+                <h:messages for="owner"/>
+            </p>
+            <p>
+                <h:outputLabel value="PRODUCT:"/>
+                <h:inputText id="product" value="#{newBean.phone.product}"/>
+                <h:messages for="product"/>
+            </p>
+            <p>
+                <h:outputLabel value="VERSION:"/>
+                <h:inputText id="version" value="#{newBean.phone.version}"/>
+                <h:messages for="version"/>
+            </p>
+            <p>
+                <h:outputLabel value="IOS:"/>
+                <h:inputText id="ios" value="#{newBean.phone.ios}"/>
+                <h:messages for="ios"/>
+            </p>
+
+
+            <p>
+                <h:outputLabel value="cover:"/>
+                <h:inputText id="cover" value="#{newBean.phone.cover}"/>
+                <h:messages for="cover"/>
+            </p>
+            <p>
+                <h:outputLabel value="COUNTRY:"/>
+                <h:inputText id="country" value="#{newBean.phone.country}"/>
+                <h:messages for="country"/>
+            </p>
+            <p>
+                <h:outputLabel value="SERIAL Nr:"/>
+                <h:inputText id="serialNr" value="#{newBean.phone.serialNr}"/>
+                <h:messages for="serialNr"/>
+            </p>
+
+            <p>
+                <h:outputLabel value="Year:"/>
+                <h:inputText id="year" value="#{newBean.phone.year}"/>
+                <h:messages for="year"/>
+            </p>
+
+            <p>
+                <h:outputLabel value="Information:"/>
+                <br/>
+                <h:inputTextarea id="information"
+                                 value="#{newBean.phone.information}"/>
+                <h:messages for="information"/>
+            </p>
+
+
+            <p>
+                <h:commandButton action="#{newBean.createPhone}"
+                                 value="Create">
+                    <f:ajax render="@form" execute="@form"/>
+                </h:commandButton>
+            </p>
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+
+</html>
