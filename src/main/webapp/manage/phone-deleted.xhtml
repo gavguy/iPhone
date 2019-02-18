@@ -4,50 +4,63 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<body>
 <ui:composition template="/templates/main.xhtml">
     <ui:define name="content">
-        <h:form>
 
-            <h:dataTable value="#{ListBean.phone}" var="phone"
-                         rendered="#{not empty ListBean.phone}"
-                         styleClass="w3-table w3-table-all">
 
-                <h:column>
+        <h:inputText value="#{listBean.term}"/>
+        <h:commandButton value="Search" action="#{listBean.doSearch}">
+            <f:ajax execute="@form" render="@form"/>
+        </h:commandButton>
+
+        <h:outputLabel value="Not found"
+                       rendered="#{empty listBean.phones}"/>
+        <h:dataTable value="#{listBean.phones}" var="phone"
+                     rendered="#{not empty listBean.phones}"
+                     styleClass="w3-table w3-table-all">
+            <h:column>
                     <f:facet name="header">Id</f:facet>
-                    #{phone.id}
+                    #{res.id}
                 </h:column>
                 <h:column>
                     <f:facet name="header">Owner</f:facet>
-                    #{phone.owner}
+                    #{res.phone.owner}
                 </h:column>
                 <h:column>
                     <f:facet name="header">product</f:facet>
-                    #{phone.product}
+                    #{res.phone.product}
                 </h:column>
                 <h:column>
                     <f:facet name="header">version</f:facet>
-                    #{phone.version}
+                    #{res.phone.version}
                 </h:column>
                 <h:column>
                     <f:facet name="header">serialNR</f:facet>
-                    #{phone.serialNr}
+                    #{res.phone.serialNr}
                 </h:column>
 
 
                 <h:column>
+                    <f:facet name="header">User Name</f:facet>
+                    #{res.user.loginName}
+                </h:column>
+                <h:column>
                     <f:facet name="header">.Delete.</f:facet>
 
-                    <h:commandButton value="DELETE" action="#{ListBean.phonedelete}">
+                    <h:commandButton value="DELETE" action="#{DeleteBean.phonedelete}">
                         value="#{phone.id}"
                         <f:ajax render="@form" execute="@form"/>
                     </h:commandButton>
 
                 </h:column>
             </h:dataTable>
-
         </h:form>
+
     </ui:define>
 </ui:composition>
-</body>
+
 </html>
+
+
+
+
