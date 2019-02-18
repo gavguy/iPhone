@@ -7,43 +7,38 @@
 <ui:composition template="/templates/main.xhtml">
     <ui:define name="content">
 
+        <h:form>
+            <h:inputText value="#{listBean.term}"/>
 
-        <h:inputText value="#{listBean.term}"/>
-        <h:commandButton value="Search" action="#{listBean.doSearch}">
-            <f:ajax execute="@form" render="@form"/>
-        </h:commandButton>
+            <h:outputLabel value="Not found"
+                           rendered="#{empty listBean.phones}"/>
+            <h:dataTable value="#{listBean.phones}" var="phone"
 
-        <h:outputLabel value="Not found"
-                       rendered="#{empty listBean.phones}"/>
-        <h:dataTable value="#{listBean.phones}" var="phone"
-                     rendered="#{not empty listBean.phones}"
-                     styleClass="w3-table w3-table-all">
-            <h:column>
+                         rendered="#{not empty listBean.phones}"
+                         styleClass="w3-table w3-table-all">
+                <h:column>
                     <f:facet name="header">Id</f:facet>
-                    #{res.id}
+                    #{phone.id}
                 </h:column>
                 <h:column>
                     <f:facet name="header">Owner</f:facet>
-                    #{res.phone.owner}
+                    #{phone.owner}
                 </h:column>
                 <h:column>
                     <f:facet name="header">product</f:facet>
-                    #{res.phone.product}
+                    #{phone.product}
                 </h:column>
                 <h:column>
                     <f:facet name="header">version</f:facet>
-                    #{res.phone.version}
+                    #{phone.version}
                 </h:column>
                 <h:column>
                     <f:facet name="header">serialNR</f:facet>
-                    #{res.phone.serialNr}
+                    #{phone.serialNr}
                 </h:column>
 
 
-                <h:column>
-                    <f:facet name="header">User Name</f:facet>
-                    #{res.user.loginName}
-                </h:column>
+
                 <h:column>
                     <f:facet name="header">.Delete.</f:facet>
 
