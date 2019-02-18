@@ -22,9 +22,6 @@ public class NewBean implements Serializable {
         em.persist(phone);
         phone = new PhoneEntity();
         created = true;
-
-//        return "phone-created.xhtml";
-
         return null;
     }
 

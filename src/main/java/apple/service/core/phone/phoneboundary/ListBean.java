@@ -34,7 +34,7 @@ public class ListBean implements Serializable {
         }
     }
 
-    @Transactional
+
     public String phonedelete() {
         PhoneEntity phone;
         phone = em.find(PhoneEntity.class, id);
