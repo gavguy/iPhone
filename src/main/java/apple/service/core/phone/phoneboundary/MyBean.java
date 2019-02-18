@@ -39,7 +39,7 @@ public class MyBean implements Serializable {
         for (ReservationEntity r : userReservations) {
             Long reservationId = r.getId();
             Optional<ReservationEntity> firstReservation = em.createQuery(
-                    "select r from Resevation r " +
+                    "select r from Reservation r " +
                             "where r.phone = :phone and r.status <> 'CLOSED' " +
                             "order by r.created", ReservationEntity.class)
                     .setParameter("phone", r.getPhone())

@@ -6,3 +6,5 @@ insert into phones (id, owner, product, version, ios, color, cover, country, ser
 insert into phones (id, owner, product, version, ios, color, cover, country, serialNr, year, information) values (-2, 'artem artem', 'nokia', '5s', 'ios-12', 'white', 'classic/special Edition', 'chine', '98765456', 2000, 'ti uze')
 insert into phones (id, owner, product, version, ios, color, cover, country, serialNr, year, information) values (-3, 'igorj igorj', 'ipod', '5s', 'ios-12', 'white', 'classic/special Edition', 'chine', '12345678', 1998,'nakonech')
 insert into phones (id, owner, product, version, ios, color, cover, country, serialNr, year, information) values (-4, 'ivan ivan', 'wirelees moyse', '5s', 'ios-12', 'white', 'classic/special Edition', 'chine', '98764300', 1999,'v konce to koncov')
+
+insert into reservations (id, user_id, book_id, status, created) values (-1, -1, -1, 'TAKEN', '2019-02-16')
