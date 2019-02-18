@@ -2,14 +2,13 @@ package apple.service.core.phone.model;
 
 import javax.persistence.*;
 
-import javax.transaction.Transactional;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
-@Transactional
+
 @Entity(name = "Phone")
 @Table(name = "phones")
 public class PhoneEntity implements Serializable {
